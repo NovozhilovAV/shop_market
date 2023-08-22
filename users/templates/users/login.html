@@ -1,0 +1,17 @@
+{% extends 'int_shop/base.html' %}
+<!--{# эта строка позволяет скопировать все из файла base.html #}-->
+<!--{# создаем форму в веб-странице средствами html #}-->
+
+{% block content %}
+
+<form id='login-form' action="{%url 'login' %}" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="_csrf">
+  <label for="username">Username</label><br>
+  <input id="username" type="text" name="username"><br>
+  <label for="password">Password</label><br>
+  <input id="password" type="password" name="password"><br>
+  <input type="submit" value="Войти">
+
+</form>
+{% endblock content %}
