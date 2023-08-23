@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-# from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm
 # from myapp.views import menu
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
@@ -7,7 +7,6 @@ from django.urls import reverse
 # from my_project_dj.settings import LOGIN_REDIRECT_URL
 
 
-# Create your views here.
 # Видео о 6.07.23 8 минута
 def register(request):
     if request.method == 'POST':
@@ -44,7 +43,7 @@ def log_in(request):
             return redirect(url)
     #     1 видео от 6.07 53 минута
 
-    return render(request, 'users/login.html', {'form': form, 'menu': menu})
+    return render(request, 'users/login.html', {'form': form})
 
 
 def log_out(request):

@@ -4,15 +4,20 @@ from django import forms
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput,
-                               error_messages={'required': 'Please let us know what to call you!'})
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput,
+                               error_messages={'required': 'Плиз, заполните поле!'})
+    password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput)
 
     class Meta:
         model = User
         fields = ('username', 'first_name', 'email')
         help_texts = {
             'username': 'Только буквы, цифры и символы @/./+/-/_',
+        }
+        labels = {
+            'username' : 'Логин',
+            'first_name' : 'Имя пользователя',
+            'email' : 'почта'
         }
 
     def clean_password2(self):
