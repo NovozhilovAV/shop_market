@@ -1,16 +1,31 @@
 from django import forms
+from .models import Category, Subcategory, Products
 
 
 class CategoriForm(forms.ModelForm):
     class Meta:
-        model = Categori
+        model = Category
         fields = '__all__'
-        labels = {
+        labels = [
             'name' = "Имя",
-            'deskription' = 'Описание',
-            'slug' = 'URL - адрес',
-        }
+            'description' = 'Описание',
+            'slug' = 'URL-адрес',
+        ]
 
-class SubcategoriForm(forms.ModelForm):
+class SubcategoryForm(forms.ModelForm):
     class Meta:
-        
+        model = Subcategory
+        fields = '__all__'
+        # все поля в модели должны быть использованны
+        labels = [
+            'name' = 'Подкатегория'
+            ,'category' = 'Категория'
+            ]
+    
+        # устанавливает текстовую метку рядом с полем
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Products
+        exclude = ['created_at', 'is_availabel']
+        # исключения 
