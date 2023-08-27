@@ -1,5 +1,7 @@
 from django import forms
+# подключили библитеку с формами
 from .models import Category, Subcategory, Products
+# импоритруем модели
 
 
 class CategoryForm(forms.ModelForm):
@@ -22,8 +24,8 @@ class SubcategoryForm(forms.ModelForm):
             'name': 'Подкатегория',
             'category': 'Категория',
         }
-    
         # устанавливает текстовую метку рядом с полем
+        
 
 class ProductForm(forms.ModelForm):
     class Meta:

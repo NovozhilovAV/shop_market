@@ -11,9 +11,9 @@ def index(request):
     return HttpResponse('This is page Products')
 
 def root_index(request):
-    # return render(request, 'products/base.html')
+    return render(request, 'products/base.html')
     # выедет меню из base.html
-    return render(request, 'products/index.html')
+    # return render(request, 'products/index.html')
     # выведет страницу index.html с приветствием и стилем stylesheet
 
 class CategoryCreateView(CreateView):

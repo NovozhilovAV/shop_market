@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-# Create your models here.
+# Create your models here. добавляем модели
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='Имя категории', unique=True)
     description = models.TextField(max_length=1000, verbose_name='Описание категории')
@@ -15,7 +15,7 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.name
     
-    def get_url(self):
+    def get_url(self):    # используется для получения URL возвращает страниц
         return reverse('category_detail', args=[self.slug])
     
 
