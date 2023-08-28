@@ -1,1 +1,10 @@
-<!-- lkhfillll -->
+<table>
+    {% for caterory in caterories %}
+    <tr>
+        <td align="center" >{{category.id}}</td>
+        <td align="center">{{category.name}}</td>
+        <td align="center">{{category.description}}</td>
+        <td align="center">{{category.slug}}</td>
+    </tr>
+    {% endfor %}
+</table>

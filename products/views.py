@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 def index(request):
-    return HttpResponse('This is page Products')
+    return HttpResponse('This is page Products/это страница с продуктами!')
 
 def root_index(request):
     return render(request, 'products/base.html')
@@ -26,5 +26,5 @@ class CategoryCreateView(CreateView):
 
 class CategoryListView(ListView):
     model = Category
-    template_name = 'products:category_list.html'
+    template_name = 'products/category_list.html'
     context_object_name = 'categories'
