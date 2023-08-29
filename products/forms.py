@@ -8,6 +8,7 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = '__all__'
+        # exclude = исключаем поля которые не хотим отображать
         labels = {
             'name': 'Имя',
             'description': 'Описание',
