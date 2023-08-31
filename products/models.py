@@ -7,7 +7,7 @@ from slugify import slugify
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='Имя категории', unique=True)
     description = models.TextField(max_length=1000, verbose_name='Описание категории')
-    slug = models.SlugField(max_length=70, unique=True, verbose_name='URL-имя', editable=False)  # отоброжает имя сущности
+    slug = models.SlugField(max_length=256, unique=True, verbose_name='URL-имя', editable=False)  # отоброжает имя сущности
 
     class Meta:
         verbose_name = 'Категория'
@@ -25,7 +25,6 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
     
 
-
 class Subcategory(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Имя подкатегории')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категория', related_name='category' )
@@ -40,6 +39,13 @@ class Subcategory(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Subcategory, self).save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.name
+    
+    def get_absolute_url(self):  # Используется для получения URL возвращает страничку
+        return reverse('products:product-list', kwargs={'cat_slug': self.category.slug, 'subcat_slug':self.slug})  
+    
 
 
 class Products(models.Model):

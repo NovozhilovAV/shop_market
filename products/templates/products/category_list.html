@@ -1,4 +1,4 @@
-<table border="3">
+<!-- <table border="3">
     <th>ID</th>
     <th>Название</th>
     <th>Описание</th>
@@ -14,4 +14,25 @@
     <tr>
         {{subcategories}}
     </tr>
-</table>
+</table> -->
+
+{% extends 'products/base.html' %}
+
+{% block content %}
+<ul>
+    {% for cat in categories %}
+        <li> {{cat.name}} </li>
+    <ul>
+        {% for subcategory in cat.categories.all %}
+            <li>{{ subcategory.name}}</li>
+            
+        {% endfor %}   
+    </ul>
+    <br>
+    {% endfor %}
+  
+</ul>
+
+
+
+{% endblock %}
