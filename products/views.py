@@ -5,9 +5,13 @@ from django.views.generic import CreateView, ListView
 from .models import Category, Subcategory, Products
 from .forms import CategoryForm, SubcategoryForm, ProductForm
 from django.urls import reverse_lazy
+from django import template
 
 
-# Create your views here.
+register = template.Library()
+# wtf???
+
+
 def index(request):
     category = Category.objects.all()
     context = {
