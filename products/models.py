@@ -45,16 +45,9 @@ class Subcategory(models.Model):
     def __str__(self) -> str:
         return self.name
     
-<<<<<<< HEAD
-    def get_absolute_url(self):  # Используется для получения URL возвращает страничку
-        return reverse('products:product-list', kwargs={'cat_slug': self.category.slug, 'subcat_slug':self.slug})  
-    
-=======
     # Используется для получения URL возвращает страничку
     def get_absolute_url(self):  
         return reverse('products:product_list', kwargs={'cat_slug': self.category.slug, 'subcat_slug':self.slug}) 
-
->>>>>>> 04e6cfd (refresh project 4.09.23)
 
 
 class Products(models.Model):
