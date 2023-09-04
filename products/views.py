@@ -11,12 +11,22 @@ from django import template
 register = template.Library()
 # wtf???
 
+# так было в начале,тренировались
+# def index(request):
+#     return HttpResponse('This is page Products/это страница c продуктами!')
+
+# def root_index(request):
+#     # return render(request, 'products/base.html')
+#     # выедет меню из base.html
+#     return render(request, 'products/index.html')
+#     # выведет страницу index.html с приветствием и стилем stylesheet
 
 def index(request):
     category = Category.objects.all()
     context = {
         'category_list': category
     }
+<<<<<<< HEAD
 
     return render(request, 'products/index.html', context=context)
 
@@ -25,7 +35,10 @@ def index(request):
 #     # выедет меню из base.html
 #     return render(request, 'products/index.html')
 #     # выведет страницу index.html с приветствием и стилем stylesheet
+=======
+>>>>>>> 04e6cfd (refresh project 4.09.23)
 
+    return render(request, 'products/index.html', context=context)
 
 class CategoryCreateView(CreateView):
     model = Category
@@ -55,6 +68,20 @@ class SubCategoryCreateView(CreateView):
     success_url = reverse_lazy('products:category_list')
 
 
+<<<<<<< HEAD
+=======
+# def CategoryDetail(request, category_slug):
+#     category = get_object_or_404(Category, slug=category_slug)
+#     subcategory = Subcategory.objects.filter(category=category)
+#     context = {
+#         'category': category,
+#         'subcategory': subcategory
+#     }
+
+#     return render(request, 'products/category_detail.html', context=context)
+
+
+>>>>>>> 04e6cfd (refresh project 4.09.23)
 class ProductCreateView(CreateView):
     model = Products
     fields = '__all__'
@@ -86,4 +113,13 @@ class ProductListView(ListView):
         super().get_queryset()
         slug = self.request.resolver_match.kwargs['subcat_slug']
         queryset = Products.objects.filter(subcategory__slug = slug)
+<<<<<<< HEAD
         return queryset
+=======
+        return queryset
+    
+       
+
+# class ProductDetailView(DetailView):
+#     pass
+>>>>>>> 04e6cfd (refresh project 4.09.23)

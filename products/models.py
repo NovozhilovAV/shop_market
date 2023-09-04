@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 from slugify import slugify
 
+def create_directory_path(instance, filename):
+    return f'images/{instance.category.slug}/{instance.subcategory.slug}'
+# wtf???
 
 # Create your models here. добавляем модели
 class Category(models.Model):
@@ -23,12 +26,11 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
-    
+  
 
 class Subcategory(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Имя подкатегории')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категория', related_name='category' )
-    # category = models.ForeignKey(to='Category') - так тоже можно написать
     slug = models.SlugField(max_length=70, unique=True, verbose_name='URL-имя', editable=False)  # отоброжает имя сущности
 
     class Meta:
@@ -43,9 +45,16 @@ class Subcategory(models.Model):
     def __str__(self) -> str:
         return self.name
     
+<<<<<<< HEAD
     def get_absolute_url(self):  # Используется для получения URL возвращает страничку
         return reverse('products:product-list', kwargs={'cat_slug': self.category.slug, 'subcat_slug':self.slug})  
     
+=======
+    # Используется для получения URL возвращает страничку
+    def get_absolute_url(self):  
+        return reverse('products:product_list', kwargs={'cat_slug': self.category.slug, 'subcat_slug':self.slug}) 
+
+>>>>>>> 04e6cfd (refresh project 4.09.23)
 
 
 class Products(models.Model):
@@ -69,6 +78,14 @@ class Products(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    # Используется для получения URL возвращает страничку
+    def get_absolute_url(self):    
+        return reverse('products:product_detail', kwargs={
+            'cat_slug': self.category.slug, 
+            'subcat_slug':self.slug, 'prod_slug': self.slug
+            }
+        ) 
     
 
 

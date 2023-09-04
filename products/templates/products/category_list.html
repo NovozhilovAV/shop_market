@@ -10,14 +10,19 @@
         <td align="center">{{category.description}}</td>
         <td align="center">{{category.slug}}</td>
      </tr>
-    {% endfor %}
+    {% эндфор %}  иначе будет ругаться
     <tr>
         {{subcategories}}
     </tr>
 </table> -->
 
+<<<<<<< HEAD
 {% extends 'products/base.html' %}
 
+=======
+
+{% extends 'products/base.html' %}
+>>>>>>> 04e6cfd (refresh project 4.09.23)
 {% block content %}
 <ul>
     {% for cat in categories %}
@@ -26,7 +31,11 @@
         {% for subcategory in cat.categories.all %}
             <li>{{ subcategory.name}}</li>
             
+<<<<<<< HEAD
         {% endfor %}   
+=======
+        {% endfor %}
+>>>>>>> 04e6cfd (refresh project 4.09.23)
     </ul>
     <br>
     {% endfor %}
