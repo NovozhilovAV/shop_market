@@ -20,7 +20,8 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.name
     
-    def get_url(self):    # используется для получения URL возвращает страниц
+    # используется для получения URL возвращает страницу
+    def get_url(self):    
         return reverse('category_detail', args=[self.slug])
     
     def save(self, *args, **kwargs):
