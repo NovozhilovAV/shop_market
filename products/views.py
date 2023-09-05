@@ -1,7 +1,7 @@
 from typing import Any, Dict
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from .models import Category, Subcategory, Products
 from .forms import CategoryForm, SubcategoryForm, ProductForm
 from django.urls import reverse_lazy
@@ -56,16 +56,7 @@ class SubCategoryCreateView(CreateView):
     success_url = reverse_lazy('products:category_list')
 
 
-# def CategoryDetail(request, category_slug):
-#     category = get_object_or_404(Category, slug=category_slug)
-#     subcategory = Subcategory.objects.filter(category=category)
-#     context = {
-#         'category': category,
-#         'subcategory': subcategory
-#     }
-#     return render(request, 'products/category_detail.html', context=context)
-
-
+# представление создания продукта
 class ProductCreateView(CreateView):
     model = Products
     fields = '__all__'
@@ -89,17 +80,30 @@ class ProductCreateView(CreateView):
 
 class ProductListView(ListView):
     model = Products
-    template_name = 'products/testindex.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
 
 
     def get_queryset(self):
-        super().get_queryset()
-        slug = self.request.resolver_match.kwargs['subcat_slug']
-        queryset = Products.objects.filter(subcategory__slug = slug)
-
+        super().get_queryset()    # родительский класс
+        slug = self.request.resolver_match.kwargs['subcat_slug']    # получаем ключ сабкатегории
+        queryset = Products.objects.filter(subcategory__slug = slug) # фильтруем продукты через подкатегорию по слагу
+        # подчеркивание двойное - связь с полем модели 
         return queryset
     
+    
+class ProductDetailView(DetailView):
+    pass
+    
+
+# def CategoryDetail(request, category_slug):
+#     category = get_object_or_404(Category, slug=category_slug)
+#     subcategory = Subcategory.objects.filter(category=category)
+#     context = {
+#         'category': category,
+#         'subcategory': subcategory
+#     }
+#     return render(request, 'products/category_detail.html', context=context)    
        
 
 # class ProductDetailView(DetailView):

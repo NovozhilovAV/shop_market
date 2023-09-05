@@ -22,6 +22,8 @@ from users import urls as urls_users
 from orders import urls as urls_orders
 from cart import urls as urls_cart
 from products.views import *
+from django.conf.urls.static import static
+from int_shop import settings
 
 
 
@@ -34,3 +36,7 @@ urlpatterns = [
     path('cart/', include(urls_cart)),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

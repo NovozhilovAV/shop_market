@@ -12,11 +12,11 @@ urlpatterns = [
     path('category_list/', CategoryListView.as_view(), name='category_list'),
     path('subcategory_form/', SubCategoryCreateView.as_view(), name='subcategory_form'),
 
-    path('product-form/', ProductCreateView.as_view(), name='product-form'),
-    path('product-list/<slug:cat_slug>/<slug:subcat_slug>/', ProductListView.as_view(), name='product-list'),
-    # path('product-detail/<slug:cat_slug>/<slug:subcat_slug>/<slug:prod_slug>/', ProductDetailView.as_view(), name='product-detail'),
+    path('product-form/', ProductCreateView.as_view(), name='product_form'),
+    path('product-list/<slug:cat_slug>/<slug:subcat_slug>/', ProductListView.as_view(), name='product_list'),
+    path('product-detail/<slug:cat_slug>/<slug:subcat_slug>/<slug:prod_slug>/', ProductDetailView.as_view(), name='product_detail'),
 
     path('product_form/', ProductCreateView.as_view(), name='product_form'),
     path('product_list/<slug:cat_slug>/<slug:subcat_slug>/', ProductListView.as_view(), name='product_list'),
-    # path('product_detail/<slug:cat_slug>/<slug:subcat_slug>/<slug:prod_slug>/', ProductDetailView.as_view(), name='product_detail'),
+    path('product_detail/<slug:cat_slug>/<slug:subcat_slug>/<slug:prod_slug>/', ProductDetailView.as_view(), name='product_detail'),
 ]
