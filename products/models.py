@@ -1,3 +1,7 @@
+# Модели отображают информацию о данных, с которыми вы работаете.
+# Они содержат поля и поведение ваших данных. Обычно одна модель представляет одну таблицу в базе данных.
+# Джанго создаст таблицу для каждой модели, определенной в файле Models.py.
+
 from django.db import models
 from django.urls import reverse
 from slugify import slugify
@@ -9,6 +13,8 @@ def create_directory_path(instance):
     return os.path.join('images', instance.category.slug, instance.subcategory.slug)
     # return f'images/{instance.category.slug}/{instance.subcategory.slug}'
 # добавление директории с изображениями
+
+# slug: это поле, метка,Поле slug будет использоваться для создания URL-адресов 
 
 # Create your models here. добавляем модели
 class Category(models.Model):
