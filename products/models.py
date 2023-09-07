@@ -79,8 +79,7 @@ class Products(models.Model):
         verbose_name_plural = 'Товары'
         ordering = ['name', '-price']
 
-    def get_url(self):
-        return reverse('product_detail', args=[self.category.slug, self.slug])
+    
     
     def __str__(self) -> str:
         return self.name
