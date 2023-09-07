@@ -93,7 +93,11 @@ class ProductListView(ListView):
     
     
 class ProductDetailView(DetailView):
-    pass
+    model = Products
+    template_name = 'products/product_detail.html'
+    context_object_name = 'product'
+    slug_url_kwarg = 'prod_slug'
+    
     
 
 # def CategoryDetail(request, category_slug):

@@ -9,8 +9,9 @@ import os
 
 
 
-def create_directory_path(instance):
-    return os.path.join('images', instance.category.slug, instance.subcategory.slug)
+def create_directory_path(instance, filename):
+    filename = os.path.join('images', instance.category.slug, instance.subcategory.slug)
+    return filename
     # return f'images/{instance.category.slug}/{instance.subcategory.slug}'
 # добавление директории с изображениями
 
@@ -88,7 +89,7 @@ class Products(models.Model):
     def get_absolute_url(self):    
         return reverse('products:product_detail', kwargs={
             'cat_slug': self.category.slug, 
-            'subcat_slug':self.slug,
+            'subcat_slug':self.subcategory.slug,
             'prod_slug': self.slug            
             }
         ) 
