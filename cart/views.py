@@ -1,4 +1,4 @@
-from market import settings
+from int_shop import settings
 from products.models import Products
 from decimal import Decimal
 from django.shortcuts import render, redirect, get_object_or_404
