@@ -39,7 +39,7 @@ class Cart:
     def save(self):
         self.session.modified = True
     
-
+    # удаление товара (сессии из словаря)
     def remove(self, product):
         product_id = str(product.id)
         if product_id in self.cart:
@@ -79,35 +79,45 @@ class Cart:
         self.save()
 
 # только для пост запроса 
-# @require_POST
-# def cart_add(request, product_id):
-#     cart = Cart(request)
-#     product = get_object_or_404(Products, id=product_id)
-#     form = CartAddProductForm(request.POST)
+@require_POST
+def cart_add(request, product_id):
+    # создаем объект корзины или получаем из сессии
+    cart = Cart(request)
+    # создаем товар
+    product = get_object_or_404(Products, id=product_id)
+    form = CartAddProductForm(request.POST)
+    # форма для количества товара
     
-#     if form.is_valid():
-#         cd = form.cleaned_data
-#         cart.add(product=product, 
-#                  quantity=cd['quantity'],
-#                  override_quantity=cd['override'])
+    if form.is_valid():
+        # если данные корректны то создаем пееременную
+        cd = form.cleaned_data
+        # добавление продукт - количество - перезаписывать?да-нет
+        cart.add(product=product, 
+                 quantity=cd['quantity'],
+                 override_quantity=cd['override'])
     
-#     return redirect('cart:cart-detail')
+    return redirect('cart:cart-detail')
+# перенапправляем на страниу корзины
 
 
 
-# @require_POST
-# def cart_remove(request, product_id):
-#     cart = Cart(request)
-#     product = get_object_or_404(Products, id=product_id)
-#     cart.remove(product)
+@require_POST
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Products, id=product_id)
+    cart.remove(product)
     
-#     return redirect('cart:cart-detail')
+    return redirect('cart:cart-detail')
 
 
-# def cart_detail(request):
-#     cart = Cart(request)
-#     for item in cart:
-#         item['update_quantity_form'] = CartAddProductForm(initial={
-#             'quantity': item['quantity'],
-#             'override': True})
-#     return render(request, 'cart/cart-detail.html', {'cart': cart})
+def cart_detail(request):
+    cart = Cart(request)
+    for item in cart:
+        # для каждой позиции добавляем форму со значениями
+        item['update_quantity_form'] = CartAddProductForm(initial={
+            # количество из элемента "количество" в форме
+            'quantity': item['quantity'],
+            # перезаписываем  значение 
+            'override': True})
+    return render(request, 'cart/cart-detail.html', {'cart': cart})
+    # вывели страницу 

@@ -19,7 +19,14 @@
         <h2>{{ prod.name }}</h2>
         <p>{{ prod.description }}</p>
         <p>{{ prod.price }} руб.</p>
-        
+        <p>
+          <!-- добавили 12.09 количество и корзина в карточке товара -->
+          <form action="{% url 'cart:cart-add' prod.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="В корзину"> 
+          </form>
+        </p>
       </div>
     {% endfor %}
     </div>
