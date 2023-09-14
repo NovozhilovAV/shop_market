@@ -7,9 +7,9 @@
 <form id='login-form' action="{%url 'login' %}" method="post">
   {% csrf_token %}
   <input type="hidden" name="_csrf">
-  <label for="username">Username</label><br>
+  <label for="username">Имя-пользователя</label><br>
   <input id="username" type="text" name="username"><br>
-  <label for="password">Password</label><br>
+  <label for="password">Пароль</label><br>
   <input id="password" type="password" name="password"><br>
   <input type="submit" value="Войти">
 

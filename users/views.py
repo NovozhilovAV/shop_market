@@ -4,7 +4,8 @@ from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
-# from my_project_dj.settings import LOGIN_REDIRECT_URL
+from int_shop.settings import LOGIN_REDIRECT_URL
+
 
 
 # Видео о 6.07.23 8 минута
@@ -50,3 +51,8 @@ def log_out(request):
     logout(request)
     url = reverse(' myapp:index')
     return redirect(url)
+
+
+# class UserDetailView(DetailView):
+#     model = User
+#     template_name = 'user/user-info.html'
