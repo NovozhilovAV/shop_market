@@ -1,0 +1,13 @@
+.cart-table {
+    margin-left: 10%;
+    width: 90%;
+    table-layout: fixed;
+}
+
+.tbody tr:nth-child(odd) {
+    background-color: aquamarine;
+}
+
+.tbody tr:nth-child(even) {
+    background-color: rgb(166, 233, 90);
+}

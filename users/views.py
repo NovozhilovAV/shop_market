@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
 from .forms import UserRegistrationForm
-# from myapp.views import menu
-from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from int_shop.settings import LOGIN_REDIRECT_URL
-
+from .forms import AuthForm
+from django.views.generic import DetailView
+from django.contrib.auth.models import User
 
 
 # Видео о 6.07.23 8 минута
@@ -30,7 +31,9 @@ def register(request):
 
 
 def log_in(request):
-    form = AuthenticationForm(request, data=request.POST or None)
+    # form = AuthenticationForm(request, data=request.POST or None)
+    form = AuthForm(request, data=request.POST or None)
+
 
     if form.is_valid():
         username = form.cleaned_data['username']
@@ -49,7 +52,7 @@ def log_in(request):
 
 def log_out(request):
     logout(request)
-    url = reverse(' myapp:index')
+    url = reverse(' int_shop:index')
     return redirect(url)
 
 

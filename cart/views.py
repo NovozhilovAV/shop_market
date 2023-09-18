@@ -19,8 +19,9 @@ class Cart:
             # если сессии не было то создадим пустую корзину и присвоим пустой словарь 
         
         self.cart = cart
+        # принимает корзину из сесии - 
 
-        # корзина, продукты, количество...
+        # метод-добавить и аргументы - корзина, продукты, количество...
     def add(self, product, quantity=1, override_quantity=False):
         product_id = str(product.id)
         # получаем id товара - в виде строки 
@@ -96,10 +97,8 @@ def cart_add(request, product_id):
                  quantity=cd['quantity'],
                  override_quantity=cd['override'])
     
-    return redirect('cart:cart-detail')
+    return redirect('cart:cart__detail')
 # перенапправляем на страниу корзины
-
-
 
 @require_POST
 def cart_remove(request, product_id):
