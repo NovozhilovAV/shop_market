@@ -31,8 +31,7 @@
     <li><a href="" >Категории</a></li>
     <li><a href="" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
-    
-    
+        
     <br>
     {% if not user.is_authenticated %}
     <li><a href="{% url 'users:register' %}">Зарегистрироваться</a></li>
@@ -80,23 +79,13 @@
     {% else %}
     <!-- если корзина пустая  -->
     <p style="margin-right:30px" class="text-right">
-    Корзина пуста.
+    Корзина пока пуста.
     {% endif %}
     {% endwith %}
     </p>
   </div>
 
-  <!-- {% for c in category_list  %}
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <strong>{{ c.name }}</strong>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      {% for subcategory in c.categories.all %}
-      <a class="dropdown-item" href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
-      {% endfor %}
-    </div>
-    {% endfor %} -->
+  
   {% block content %}
 
   {% endblock content %}

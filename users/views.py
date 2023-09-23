@@ -14,6 +14,7 @@ def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
+            # Добавляем нового пользователя и сохроняем 
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
             # Set the chosen password
@@ -24,8 +25,7 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'users/register.html', {'user_form': user_form})
-
-
+    # при успешной регистрации перейдем на этот адрес
 # так внутри создается пользователь - создается запись во встроенной таблице User
 # user = User.objects.create_user("john", "lennon@thebeatles.com", "johnpassword")
 
