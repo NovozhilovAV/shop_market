@@ -1,6 +1,10 @@
 from django.urls import path
+<<<<<<< HEAD
 # from .views import register.....
 from .views import *
+=======
+from .views import register, log_out, log_in
+>>>>>>> 68da62b (refresh project 22/09/23)
 
 app_name = 'users'
 urlpatterns = [
