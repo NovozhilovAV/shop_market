@@ -102,9 +102,13 @@ def cart_add(request, product_id):
         cart.add(product=product, 
                  quantity=cd['quantity'],
                  override_quantity=cd['override'])
+    else:
+        cart.add(product=product, 
+                 quantity=1,
+                 override_quantity=False)
     
     return redirect('cart:cart__detail')
-# перенапправляем на страниу корзины
+    # перенапправляем на страниу корзины
 
 @require_POST
 def cart_remove(request, product_id):
