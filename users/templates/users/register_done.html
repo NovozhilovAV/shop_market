@@ -1,4 +1,5 @@
-{% extends "int_shop/base.html" %}
+{% extends "user/base.html" %}
+<!-- наследуемся от шаблона базового(base) -->
 
 {% block title %}Успешная регистрация!{% endblock %}
 
@@ -6,6 +7,6 @@
     <h1>Аккаунт создан:</h1>
     <p>Логин - {{new_user.username}}</p>
     <p>Имя - {{new_user.first_name}}</p>
-    <p>Эл. почта - {{new_user.email}}</p>
+    <p>Электрон. почта - {{new_user.email}}</p>
     
 {% endblock %}

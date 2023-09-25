@@ -1,0 +1,10 @@
+{% extends 'users/base.html' %}
+<!-- наследуемся от шаблона базового(base) -->
+{% block content %}
+<!-- дополняем базовый шаблон; поля из forms; 
+    можно добавить рамку и цвет -->
+<p>Логин - {{user.username}}</p>
+<p>Имя - {{user.first_name}}</p>
+<p>Эл.почта - {{user.email}}</p>
+
+{% endblock content %}

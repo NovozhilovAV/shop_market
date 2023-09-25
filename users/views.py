@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 # Видео о 6.07.23 8 минута
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
+        user_form = UserRegistrationForm(request.POST)    # то,что берется из запроса
         if user_form.is_valid():
             # Добавляем нового пользователя и сохроняем 
             # Create a new user object but avoid saving it yet
@@ -35,7 +35,7 @@ def log_in(request):
     form = AuthForm(request, data=request.POST or None)
 
 
-    if form.is_valid():
+    if form.is_valid():     # если форма валидна(корректная)
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
         user = authenticate(username=username, password=password)
@@ -43,7 +43,7 @@ def log_in(request):
         if user is not None:
             login(request, user)
             # url = reverse('main:index')
-            url = request.GET.get('next', LOGIN_REDIRECT_URL)
+            url = request.GET.get('next', LOGIN_REDIRECT_URL)   # внизу в settings.py
             return redirect(url)
     #     1 видео от 6.07 53 минута
 
@@ -56,6 +56,8 @@ def log_out(request):
     return redirect(url)
 
 
-# class UserDetailView(DetailView):
-#     model = User
-#     template_name = 'user/user-info.html'
+class UserDetailView(DetailView):
+    # определили класс(наследуем его) - отображение страницы пользователя
+    model = User    # модель - Юзер - берет данные
+    template_name = 'user/user_info.html'
+    # Имя шаблона куда выводится - где отрисовывается

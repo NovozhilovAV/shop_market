@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+# стандартная модель джанго в модуле аунтефикации
 from django.utils.translation import gettext_lazy as _
 from django import forms  ## Для переопределения полей в формах
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
@@ -11,10 +12,11 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'email')
+        fields = ('username', 'first_name', 'email')    # выбрали поля из модели
         help_texts = {
             'username': 'Только буквы, цифры и символы @/./+/-/_',
         }
+        # переназвали поля по русски
         labels = {
             'username' : 'Логин',
             'first_name' : 'Имя пользователя',
@@ -48,8 +50,8 @@ class AuthForm(AuthenticationForm):
 
     error_messages = {
         "invalid_login": _(
-            "Пожалуйста введите коректные логин и пароль. Обратите внимание на то, что! "
-            "поля могут быть чувствительны к регистру."
+            "Введите коректные логин и пароль. Внимание! "
+            "Поля могут быть чувствительны к регистру."
         ),
         "inactive": _("Этот аккаунт заблокирован."),
     }

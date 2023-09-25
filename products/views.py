@@ -91,7 +91,15 @@ class ProductListView(ListView):
         # подчеркивание двойное - связь с полем модели 
         return queryset
     
+    # переопределили контекст чтобы туда поподала форма
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        cart_product_form = ()
+        # форма добавления продукта
+        context['cart_product_form'] = cart_product_form
+        return context
     
+    # карточка товара
 class ProductDetailView(DetailView):
     model = Products
     template_name = 'products/product_detail.html'

@@ -1,10 +1,17 @@
-{% extends 'int_shop/base.html' %}
-<!--{# эта строка позволяет скопировать все из файла base.html #}-->
-<!--{# создаем форму в веб-странице средствами html #}-->
+{% extends 'user/base.html' %}
+<!-- расширение базового шаблона-копируем все из файла base.html(int_shop/base.html)-->
 
 {% block content %}
+<h1>Авторизация пользователя</h1>
+<p>Заполните форму входа</p>
 
-<form id='login-form' action="{%url 'login' %}" method="post">
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p><input type="submit" value="Войти"></p>
+</form>
+
+<!-- <form id='login-form' action="{%url 'login' %}" method="post">
   {% csrf_token %}
   <input type="hidden" name="_csrf">
   <label for="username">Имя-пользователя</label><br>
@@ -13,5 +20,6 @@
   <input id="password" type="password" name="password"><br>
   <input type="submit" value="Войти">
 
-</form>
+</form> 
+так было до до 20.09  -->
 {% endblock content %}

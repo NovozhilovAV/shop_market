@@ -1,8 +1,9 @@
-{% block title %}Create an account{% endblock %}
+<!-- {% блок title %}Create an account{% эндблок %} -->
+{% extends "user/base.html" %}
 
 {% block content %}
-    <h1>Регистрация пользователя</h1>
-    <p>Пожалуйста, заполните форму регистрации:</p>
+    <h1>Регистрация пользователя </h1>
+    <p>Заполните форму регистрации: </p>
     <form action="." method="post">
         {{ user_form.as_p }}
         {% csrf_token %}
