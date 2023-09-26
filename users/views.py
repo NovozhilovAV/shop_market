@@ -52,7 +52,7 @@ def log_in(request):
 
 def log_out(request):
     logout(request)
-    url = reverse(' products:index')
+    url = reverse('products:index')
     return redirect(url)
 
 

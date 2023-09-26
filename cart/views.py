@@ -138,13 +138,13 @@ def cart_detail(request):
             'quantity': item['quantity'],
             # перезаписываем  значение 
             'override': True})
-    return render(request, 'cart/cart-detail.html', {'cart': cart})
+    return render(request, 'cart/cart_detail.html', {'cart': cart})
     # вывели страницу 
 
 # корзина для авторизованного пользователя (хранится постоянно  в БД)
 class ProductCartUser:
     # инициализация корзины
-    def _init_(self, request):
+    def __init__(self, request):
         # создаем объект словаря для хранения товаров
         self.cart = {}
         # получаем текущего пользователя, чтобы знать, с чьей корзиной работать

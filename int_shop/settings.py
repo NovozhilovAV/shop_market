@@ -124,7 +124,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = 'int_shop:index'
+LOGIN_REDIRECT_URL = 'products:index'
 LOGIN_URL = 'users:login'
 
 # Static files (CSS, JavaScript, Images)

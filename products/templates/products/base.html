@@ -44,7 +44,7 @@
   </ul>
 
   {% if user.is_authenticated %}
-  <a style="margin-left: 16px;" href="{% url 'users:user-info' user.pk %}">{{user.username}}</a>
+  <a style="margin-left: 16px;" href="{% url 'users:user_info' user.pk %}">{{user.username}}</a>
   {% endif %}
 
 

@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Order, OrderItem
@@ -34,4 +35,6 @@ def create_order(request):
             quantity = cart[product_id]['quantity']
         
             OrderItem.objects.create(order=order, product=product, quantity=quantity)
+
+    return HttpResponse('<h3>Успешно создан заказ</h3>')
             
