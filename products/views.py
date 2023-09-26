@@ -116,8 +116,3 @@ class ProductDetailView(DetailView):
 #         'subcategory': subcategory
 #     }
 #     return render(request, 'products/category_detail.html', context=context)    
-       
-
-# class ProductDetailView(DetailView):
-#     pass
-
