@@ -42,7 +42,7 @@ def log_in(request):
 
         if user is not None:
             login(request, user)
-            # url = reverse('int_shop:index')
+            # url = reverse('products:index')
             url = request.GET.get('next', LOGIN_REDIRECT_URL)   # внизу в settings.py
             return redirect(url)
     #     1 видео от 6.07 53 минута
@@ -52,7 +52,7 @@ def log_in(request):
 
 def log_out(request):
     logout(request)
-    url = reverse(' int_shop:index')
+    url = reverse(' products:index')
     return redirect(url)
 
 
