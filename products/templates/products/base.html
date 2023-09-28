@@ -29,7 +29,7 @@
     <li style="border:3px ridge greenyellow;"><a href="{% url 'products:index' %}" >Главная</a></li>
     <!-- "class="current" делает надпись активной при переходе на страницу -->
     <li style="border-bottom: 2px solid black;"><a href="" >Категории</a></li>
-    <li style="border-right: 2px ridge red;"><a href="" >Заказы</a></li>
+    <li style="border-right: 2px ridge red;"><a href="{% url 'orders:order-list' %}" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
             
     <br>

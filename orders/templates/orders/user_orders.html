@@ -15,7 +15,8 @@
         {% for  order in orders  %}
                 <tr>
                     <td>
-                       <a href={% url "orders:order-detail" order.number%}>{{order.number}}</a>
+                    <td>{{order.status}}</td>
+                        <--! <a href={% url "orders:order-detail" order.number%}>{{order.number}}</a> -->
                     </td>
                     <td>{{order.status}}</td>
                     <td>{{order.total_price}}</td>
