@@ -1,8 +1,8 @@
 
-import uuid
 from django.db import models
 from cart.models import Products
 from django.utils.timezone import datetime
+from django.contrib.auth.models import User
 
 # список кортежей - статус заказа 
 STATUS_CHOICES = (
@@ -33,6 +33,7 @@ def get_order_number():
 class Order(models.Model):
     # номер заказа - уникален. edittable - не отоброжать
     number = models.CharField(primary_key=True, unique=True, max_length=256, default=get_order_number, editable=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, editable=False)
     first_name = models.CharField(max_length=256, verbose_name='Имя')
     last_name = models.CharField(max_length=256, verbose_name='Фамилия')
     email = models.EmailField(verbose_name='Электронная почта')
@@ -56,4 +57,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='orders')
     quantity = models.IntegerField()
+    
+    def get_total_price(self):
+        return self.product.price * int(self.quantity)
     

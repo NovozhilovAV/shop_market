@@ -5,6 +5,6 @@ from .views import create_order
 # заказы
 app_name = 'orders'
 urlpatterns = [
-    path('new_order/', create_order, name='order-create'),
+    path('new_order/', create_order, name='order_create'),
     
 ]

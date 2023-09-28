@@ -5,6 +5,7 @@
   padding: 25px 0 5px;
   text-align: center;
   background: rgb(147, 170, 169);
+  
 }
 .menu-main li {display: inline-block;}
 .menu-main li:after {

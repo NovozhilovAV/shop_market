@@ -26,12 +26,12 @@
     </style>
 
   <ul class="menu-main">
-    <li><a href="{% url 'products:index' %}" >Главная</a></li>
+    <li style="border:3px ridge greenyellow;"><a href="{% url 'products:index' %}" >Главная</a></li>
     <!-- "class="current" делает надпись активной при переходе на страницу -->
-    <li><a href="" >Категории</a></li>
-    <li><a href="" >Заказы</a></li>
+    <li style="border-bottom: 2px solid black;"><a href="" >Категории</a></li>
+    <li style="border-right: 2px ridge red;"><a href="" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
-        
+            
     <br>
     {% if not user.is_authenticated %}
     <li><a href="{% url 'users:register' %}">Зарегистрироваться</a></li>
@@ -39,7 +39,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <li><a href="{% url 'users:logout' %}">Выйти</a></li>
+    <li style="border-right: 2px ridge yellow;><a href="{% url 'users:logout' %}">Выйти</a></li>
     {% endif %}
   </ul>
 
