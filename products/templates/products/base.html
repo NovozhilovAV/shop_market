@@ -19,17 +19,18 @@
   <!-- вставляем стиль css в код, прямо в коде станицы -->
     <style>
         body {
-            background-image: url("{% static 'img/porsche-9111.jpg' %}");
-            background-repeat: no-repeat;
-            background-size: cover;
+          background-color: rgb(238, 170, 68);
+          {% comment %} background-image: url("{% static 'img/porsche-9111.jpg' %}"); {% endcomment %}
+          background-repeat: no-repeat;
+          background-size: cover;
         }
     </style>
 
   <ul class="menu-main">
-    <li style="border:3px ridge greenyellow;"><a href="{% url 'products:index' %}" >Главная</a></li>
+    <li><a href="{% url 'products:index' %}" >Главная</a></li>
     <!-- "class="current" делает надпись активной при переходе на страницу -->
-    <li style="border-bottom: 2px solid black;"><a href="" >Категории</a></li>
-    <li style="border-right: 2px ridge red;"><a href="{% url 'orders:order-list' %}" >Заказы</a></li>
+    <li><a href="" >Категории</a></li>
+    <li><a href="{% url 'orders:order-list' %}" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
             
     <br>

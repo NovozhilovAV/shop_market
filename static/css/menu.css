@@ -1,26 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .menu-main {
   list-style: none;
-  margin: 40px 0 5px;
+  margin: 35px 0 5px;
   padding: 25px 0 5px;
   text-align: center;
-  background: rgb(147, 170, 169);
-  
+  background: rgb(147, 170, 169);  
 }
+
 .menu-main li {display: inline-block;}
 .menu-main li:after {
+  
   content: "|";
-  color: #4ce426;
+  color: #177a17;
   display: inline-block;
   vertical-align:top;
 }
+/* Оформление меню - главная-категории-корзина.... */
 .menu-main li:last-child:after {content: none;}
 .menu-main a {
+  border:2px ridge rgb(93, 157, 241);
+  border-radius: 10px;
   text-decoration: none;
   font-family: 'Ubuntu Condensed', sans-serif;
   letter-spacing: 2px;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   margin: 0 34px 0 30px;
   font-size: 17px;
   text-transform: uppercase;
