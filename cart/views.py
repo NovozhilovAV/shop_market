@@ -107,7 +107,7 @@ def cart_add(request, product_id):
                  quantity=1,
                  override_quantity=False)
     
-    return redirect('cart:cart__detail')
+    return redirect('cart:cart_detail')
     # перенапправляем на страниу корзины
 
 @require_POST
@@ -262,7 +262,7 @@ def add_cart_db(request, product_id):
                  quantity=1,
                  override_quantity=False)
     # переходим на страницу корзины
-    return redirect('cart:cart-detail')
+    return redirect('cart:cart_detail')
  
  
 # удаление товара из корзины
@@ -274,3 +274,21 @@ def remove_from_db(request, product_id):
     cart.remove(product_id, request)    
  
     return redirect('cart:cart_detail')
+
+
+
+# @require_POST
+# @csrf_exempt
+# def get_ajax(request):
+#     data = json.loads(request.body)
+#     product_count = data.get('count')
+#     product_id = data.get('id')
+    
+#     product = get_object_or_404(Products, id=product_id)
+#     product_item = CartItem.objects.get(product=product)
+#     product_item.quantity = product_count
+#     product_item.save()
+    
+    
+#     response_data = {'result': 'success'}
+#     return HttpResponse(json.dumps(response_data), content_type = 'application/json')

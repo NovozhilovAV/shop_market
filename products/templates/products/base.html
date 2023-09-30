@@ -39,7 +39,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <li style="border-right: 2px ridge yellow;><a href="{% url 'users:logout' %}">Выйти</a></li>
+    <li><a href="{% url 'users:logout' %}">Выйти</a></li>
     {% endif %}
   </ul>
 
@@ -48,7 +48,7 @@
   {% endif %}
 
 
-  {% for c in category_list  %}
+{% for c in category_list  %}
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <strong>{{ c.name }}</strong>
@@ -72,7 +72,7 @@
     <p class="text-right">   
       <!-- ориентация с правой стороны -->
     Корзина:
-    <a style="margin-right:30px" href="{% url "cart:cart-detail"%}">
+    <a style="margin-right:30px" href="{% url "cart:cart_detail"%}">
       {{ total_items }} ед. -
       {{ cart.get_total_price }} руб.
     </a>

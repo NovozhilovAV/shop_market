@@ -1,10 +1,3 @@
-# from django.http import HttpResponse
-# from django.shortcuts import render
-
-# from .models import Order, OrderItem
-# from products.models import Products
-# from .forms import OrderForm
-
 # # создание заказа
 # def create_order(request):
 #     # выдаем пустую форму для заполнения информации о заказе
