@@ -1,5 +1,6 @@
 # # shop_market
-# My internet shop Django
+My internet shop Django
+# создаем приложения - python3 manage.py startapp products
 
 # sudo apt install python3-venv
 # python3 -m venv venv
@@ -25,3 +26,4 @@
 # Указать нужный путь к python.exe в папке окружения env, это отобразится внизу в панели состояния.
 #  Профит! Теперь можно устанавливать модули только для конкретного проекта.
 # 5. Если нужно будет выйти, то в PowerShell выполнить deactivate, в выборе интерпетатора вернуться на глобальный.
+
