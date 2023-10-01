@@ -19,12 +19,18 @@
   <!-- вставляем стиль css в код, прямо в коде станицы -->
     <style>
         body {
-          background-color: rgb(238, 170, 68);
-          {% comment %} background-image:url("{% static 'img/porsche-9111.jpg' %}"); {% endcomment %} */
-          background-repeat:no-repeat,
-          background-size:cover,
+          {% comment %} background-color: rgb(238, 170, 68); {% endcomment %}
+          background-image:url("{% static 'img/rolls.jpg' %}");
+          background-repeat:no-repeat;
+          background-size:cover;
         }
+        {% comment %} .nav-item dropdown {
+          color:red;
+
+        } {% endcomment %}
+        
     </style>
+    <div class='zagolovok'>ПрокатАвтоКорпарейшенТехнолоджес</div>  
 
   <ul class="menu-main">
     <li><a href="{% url 'products:index' %}" >Главная</a></li>
@@ -45,7 +51,7 @@
   </ul>
 
   {% if user.is_authenticated %}
-  <a style="margin-left: 16px;" href="{% url 'users:user_info' user.pk %}">{{user.username}}</a>
+  <a style="margin-left: 19px; color:rgb(230, 203, 50);" href="{% url 'users:user_info' user.pk %}">{{user.username}}</a>
   {% endif %}
 
 

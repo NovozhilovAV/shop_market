@@ -1,5 +1,5 @@
 # # shop_market
-My internet shop Django
+# My internet shop Django
 # создаем приложения - python3 manage.py startapp products
 
 # sudo apt install python3-venv
