@@ -73,7 +73,10 @@
 .menu-main a {
   padding: 25px 0 20px; 
   margin: 0 30px;
-  
 }
+}
+.nav-item dropdown {
+  color: #c55825;
+
 }
  
