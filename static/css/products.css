@@ -1,0 +1,37 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+  
+.product {
+  width: calc(100% - 10px);
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  
+}
+
+.product img {
+  width: 350px;
+  height: 250px;
+  opacity: 0.9;
+}
+
+/* описание под карточкой */
+.product h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: rgb(230, 203, 50);
+  
+}
+.product p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: rgb(230, 203, 50);
+  
+}

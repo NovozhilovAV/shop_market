@@ -9,7 +9,7 @@
     {% for prod in products %}
       <div class="product">
         {% if prod.image %}
-          {% thumbnail prod.image "300" as im %}
+          {% thumbnail prod.image "400" as im %}
             <a href="{{ prod.get_absolute_url }}"><img src="{{im.url}}"></a>
           {% endthumbnail %}
         {% else %}
@@ -20,7 +20,7 @@
         <p>{{ prod.description }}</p>
         <p>{{ prod.price }} руб.</p>
         <p>
-          <!-- добавили 12.09 количество и корзина в карточке товара -->
+          <!-- добавили 12.09 количество и корзину в карточке товара -->
           <form action="{% url 'cart:cart-add' prod.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
