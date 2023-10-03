@@ -6,6 +6,8 @@ from django.views.decorators.http import require_POST
 from products.models import Products
 from .forms import CartAddProductForm
 from cart.models import CartItem, CartUser
+import json
+from django.views.decorators.csrf import csrf_exempt
 
 # создаем класс корзины. она связана с сесией
 
@@ -22,7 +24,7 @@ class Cart:
         self.cart = cart
         # принимает корзину из сесии - 
 
-        # метод-добавить и аргументы - корзина, продукты, количество...
+    # метод -добавить (аргументы - корзина, продукты, количество...)
     def add(self, product, quantity=1, override_quantity=False):
         product_id = str(product.id)
         # получаем id товара - в виде строки 
@@ -86,10 +88,10 @@ def cart_add(request, product_id):
     # создаем объект корзины или получаем из сессии
     if request.user.id:
         return add_cart_db(request, product_id)
+    
     cart = Cart(request)
     # если пользователь авторизирован то добавляем
     # в БД товар ....
-     
     # создаем товар
     product = get_object_or_404(Products, id=product_id)
     form = CartAddProductForm(request.POST)
@@ -103,6 +105,7 @@ def cart_add(request, product_id):
                  quantity=cd['quantity'],
                  override_quantity=cd['override'])
     else:
+        # добавляем  1 единицу товара
         cart.add(product=product, 
                  quantity=1,
                  override_quantity=False)
@@ -141,7 +144,7 @@ def cart_detail(request):
     return render(request, 'cart/cart_detail.html', {'cart': cart})
     # вывели страницу 
 
-# корзина для авторизованного пользователя (хранится постоянно  в БД)
+# корзина для авторизованного пользователя(постоянно хранится в БД)
 class ProductCartUser:
     # инициализация корзины
     def __init__(self, request):
@@ -276,18 +279,17 @@ def remove_from_db(request, product_id):
     return redirect('cart:cart_detail')
 
 
-
-# @require_POST
-# @csrf_exempt
-# def get_ajax(request):
-#     data = json.loads(request.body)
-#     product_count = data.get('count')
-#     product_id = data.get('id')
+@require_POST
+@csrf_exempt
+def get_ajax(request):
+    data = json.loads(request.body)
+    product_count = data.get('count')
+    product_id = data.get('id')
     
-#     product = get_object_or_404(Products, id=product_id)
-#     product_item = CartItem.objects.get(product=product)
-#     product_item.quantity = product_count
-#     product_item.save()
+    product = get_object_or_404(Products, id=product_id)
+    product_item = CartItem.objects.get(product=product)
+    product_item.quantity = product_count
+    product_item.save()
     
     
 #     response_data = {'result': 'success'}

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 .menu-main {
-  /* display: flex;
+  display: flex;
   align-items: flex-start;
-  gap: 10px; */
+  gap: 10px;
   /* полоска с категориями */
   list-style: none;
   margin: 35px 0 5px;

@@ -35,10 +35,10 @@
     <li><a href="{% url 'orders:order-list' %}" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
             
-    <br>
+    
     {% if not user.is_authenticated %}
-    <li><a href="{% url 'users:register' %}">Зарегистрироваться</a></li>
-    <li><a href="{% url 'users:login' %}">Воити</a></li>
+    <li style="align-items: flex-end;"><a href="{% url 'users:register' %}">Зарегистрироваться</a></li>
+    <li style="align-items: flex-end;"><a href="{% url 'users:login' %}">Воити</a></li>
     {% endif %}
 
     {% if user.is_authenticated %}

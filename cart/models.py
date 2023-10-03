@@ -7,7 +7,7 @@ class CartUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
-
+# класс корзины с карточкой продуктом и количеством
 class CartItem(models.Model):
     cart = models.ForeignKey(CartUser, on_delete=models.CASCADE, related_name='cart')
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='products')

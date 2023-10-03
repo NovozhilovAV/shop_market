@@ -46,12 +46,14 @@ from .forms import OrderForm
 from .models import Order, OrderItem
 
 
+# удаление корзины пользователя из БД
 def cart_delete(request, cart):
+    # очищаем словарь
     cart.clear()
-    # получаем объект корзины
+    #получаем объект корзины из БД
     cart_user = CartUser.objects.get(user=request.user)
+    # удаляем его
     cart_user.delete()
-    
 
 # создание заказа
 def create_order(request):
@@ -112,12 +114,13 @@ def create_order(request):
         
         return render(request, 'orders/order_success.html', context=context)
             
-
+#  список заказов пользователя
 class OrdersListView(ListView):
     model = Order
     template_name = 'orders/user_orders.html'
     context_object_name = 'orders'
     
+    #  заказы из БД по полю пользователь(user)
     def get_queryset(self):
         super().get_queryset()
         user = self.request.user
@@ -126,7 +129,7 @@ class OrdersListView(ListView):
         
         return queryset
     
-
+#  информация о заказе
 class OrderDetailView(DetailView):
     model = Order
     template_name = 'orders/order-detail.html'
