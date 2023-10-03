@@ -19,7 +19,7 @@
   <!-- вставляем стиль css в код, прямо в коде станицы -->
     <style>
         body {
-          {% comment %} background-color: rgb(238, 170, 68); {% endcomment %}
+          /* {% comment %} background-color: rgb(238, 170, 68); {% endcomment %} */
           background-image:url("{% static 'img/derevo.jpg' %}");
           background-repeat:no-repeat;
           background-size:cover;
@@ -30,7 +30,6 @@
 
   <ul class="menu-main">
     <li><a href="{% url 'products:index' %}" >Главная</a></li>
-    <!-- "class="current" делает надпись активной при переходе на страницу -->
     <li><a href="" >Категории</a></li>
     <li><a href="{% url 'orders:order-list' %}" >Заказы</a></li>
     <li><a href="">Корзина</a></li>
@@ -82,8 +81,8 @@
     </a>
     {% else %}
     <!-- если корзина пустая  -->
-    <p style="margin-right:30px; color:rgb(15, 23, 23);" class="text-right">
-    Корзина пока пуста.
+    <p style="margin-right:30px; color:rgb(128, 78, 133);" class="text-right">
+    Корзина пока пуста
     {% endif %}
     {% endwith %}
     </p>
