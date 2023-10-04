@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0%n=%41**_3a_c4c&j4kd6w8hp&f6op&3msqkft*s(r%%0@fgn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['212.109.194.139','tema.reida87.fvds.ru','localhost' ]
 
 
 # Application definition
@@ -88,8 +88,12 @@ WSGI_APPLICATION = 'int_shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'shop',
+        'USER': 'artem',
+        'PASSWORD': 'volume05',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -131,9 +135,18 @@ LOGIN_URL = 'users:login'
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS =  [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# посредники для статических файлов
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+
+# STATICFILES_DIRS =  [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
