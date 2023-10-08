@@ -1,5 +1,4 @@
-{% load static %}
-<!-- подключаем статик папку -->
+{% load static %}    <!-- подключаем статик папку -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,17 +69,14 @@
   <div class="cart">
     <!-- фильтр шаблона - подсчет корзины -->
     {% with total_items=cart|length %}
-    <!-- если корзина больше 0  -->
-    {% if total_items > 0 %}
+    {% if total_items > 0 %}     <!-- если корзина больше 0  -->
     <p class="text-right">   
-      <!-- ориентация с правой стороны -->
     Корзина:
     <a style="margin-right:30px" href="{% url "cart:cart_detail"%}">
       {{ total_items }} ед. -
       {{ cart.get_total_price }} руб.
     </a>
-    {% else %}
-    <!-- если корзина пустая  -->
+    {% else %}    <!-- если корзина пустая  -->
     <p style="margin-right:30px; color:rgb(128, 78, 133);" class="text-right">
     Корзина пока пуста
     {% endif %}
