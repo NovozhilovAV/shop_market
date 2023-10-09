@@ -61,3 +61,4 @@ class OrderItem(models.Model):
     def get_total_price(self):
         return self.product.price * int(self.quantity)
     
+# видео от 26.09.23  - 20 минута

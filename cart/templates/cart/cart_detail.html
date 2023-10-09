@@ -34,7 +34,7 @@
                     <form action="{% url 'cart:cart-add' product.id %}" method="post">
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.override }}
-                        <input id="count" type="submit" value="Обновить кол-во">
+                        <input id="count" type="submit" value="Обновить количество">
                         {% csrf_token %}
                         </form>
                     </td>
@@ -50,7 +50,7 @@
             {% endwith %}
         {% endfor %}
 
-        <tr class="Стоимость">
+        <tr>
             <td>Сумма заказа:</td>
             <td colspan="4"></td>
             <td class="num"><span id="total_price">{{ cart.get_total_price }}</span> руб.</td><td class="num">{{ cart.get_total_price }} руб.</td>

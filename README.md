@@ -27,3 +27,22 @@
 #  Профит! Теперь можно устанавливать модули только для конкретного проекта.
 # 5. Если нужно будет выйти, то в PowerShell выполнить deactivate, в выборе интерпетатора вернуться на глобальный.
 
+
+# server {
+#   listen 80;
+#   server_name karnel26.fvds.ru www.karnel26.fvds.ru 62.109.0.164;
+# 
+#    location = /favicon.ico { access_log off; log_not_found off; }
+#    location /static/ {
+#        root /var/www/html/e-shop;
+#    }
+# 
+#    location /media/ {
+#        root /var/www/html/e-shop;
+#    }
+# 
+#    location / {
+#        include proxy_params;
+#        proxy_pass http://unix:/run/gunicorn.sock;
+#    }
+# } 

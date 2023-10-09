@@ -18,7 +18,7 @@
           
         <h2>{{ prod.name }}</h2>
         <p>{{ prod.description }}</p>
-        <p>{{ prod.price }} руб.</p>
+        <p>{{ prod.price }} руб./24ч.</p>
         <p>
           <!-- добавили 12.09 количество и корзину в карточке товара -->
           <form action="{% url 'cart:cart-add' prod.id %}" method="post">

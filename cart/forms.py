@@ -10,10 +10,13 @@ from django import forms
 class CartAddProductForm(forms.Form):
     
     quantity = forms.IntegerField(
-        max_value=1000, 
+        max_value=365, 
         min_value=1,
         label='Количество',
         widget=forms.NumberInput(attrs={'style':'width:80px', 'id':'quantity', 'onchange':"sendCount(this)"}),
         initial=1
         )
     override = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
+
+
+# видео от 12.09.23 второе видео - 30минута

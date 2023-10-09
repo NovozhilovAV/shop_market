@@ -11,7 +11,7 @@ from django import template
 register = template.Library()
 # wtf???
 
-# так было в начале,тренировались
+# # так было в начале,тренировались
 # def index(request):
 #     return HttpResponse('This is page Products/это страница c продуктами!')
 

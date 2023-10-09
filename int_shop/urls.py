@@ -29,6 +29,7 @@ from int_shop import settings
 
 urlpatterns = [
     path('', index, name='index'), 
+    # path('', include(urls_products)),
     path('admin/', admin.site.urls),
     path('products/', include(urls_products)),
     path('users/', include(urls_users)),

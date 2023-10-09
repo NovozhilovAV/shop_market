@@ -14,6 +14,7 @@ class Cart:
     def __init__(self, request):
         # получили сессию
         self.session = request.session
+        self.user = request.user
         # из нашей сессии получили id сессии
         cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
@@ -81,7 +82,8 @@ class Cart:
         del self.session[settings.CART_SESSION_ID]
         self.save()
 
-# только для пост запроса 
+# только для пост запроса. 
+# видео от 14.09.23 поиск ошибки при добавлении в корзину
 @require_POST
 def cart_add(request, product_id):
     # создаем объект корзины или получаем из сессии
