@@ -10,7 +10,6 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 
 # создаем класс корзины. она связана с сесией
-
 class Cart:
     def __init__(self, request):
         # получили сессию
